@@ -13,8 +13,8 @@ Designated TC39 reviewers: @_ @_
 - [Rationale and Motivation](#rationale-motivation)
 - [Prior Art](#prior-art)
   - [Ruby](#prior-art:ruby)
-  - [Python](#prior-art:ruby)
-  - [Coffeescript](#prior-art:ruby)
+  - [Python](#prior-art:python)
+  - [Coffeescript](#prior-art:coffeescript)
 - [Proposed Solution: Make Numbers Iterable](#proposed-solution)
   - [for-of loop](#proposed-solution:for-of)
   - [conversion to array](#proposed-solution:conversion-array)
@@ -26,7 +26,7 @@ Designated TC39 reviewers: @_ @_
 - [Specification](#specification)
 - [Implementation](#implementation)
   - [Paste](#implementation:paste)
-  - [Install](#implementation:install)
+  - [Import](#implementation:import)
 - [Language conflicts](#language-conflicts)
 
 ## <a name="status"></a>Status
@@ -127,7 +127,7 @@ Coffeescript also achieves this with the concept of [Comprehensions over Ranges]
 
 We can do away with most of the awkwardness using the [iterator protocol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols) to make numbers iterable, yielding 0 to n-1; or -n to -1, if n is negative.
 
-### <a name="proposed-solution"></a>for-of loop
+### <a name="proposed-solution:for-of"></a>for-of loop
 
 An iterable number can be the target of a [for-of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of) loop, mirroring the for-in syntax from other languages:
 
@@ -171,7 +171,7 @@ Like any iterator, iterable Numbers can be converted into sets.
 new Set(n);//Set {0,1,...n-1}
 ```
 
-#### <a name="side-node:set-theory"></a>set theory
+#### <a name="side-note:set-theory"></a>set theory
 
 On a side note, this fits well with the set theory of integers.
 
