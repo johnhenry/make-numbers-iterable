@@ -276,7 +276,7 @@ The following code modifies the Number object's prototype, allowing any positive
 
 ### <a name="implementation:paste"></a>Paste
 
-You can paste it into a console to see this proposal it in action.
+You can paste the following code into a console:
 
 ```javascript
 Object.defineProperty(
@@ -294,18 +294,22 @@ Symbol.iterator,
 });
 ```
 
+and then try out the above examples to see this proposal in action.
+
 ### <a name="implementation:import"></a>Import
 
-You can import the included "make-numbers-iterable.js" file and import it into a project.
+You can import the included "make-numbers-iterable.js" into a project.
 
 ```javascript
 import './make-numbers-iterable';
 //...
 ```
 
+and then try out the above examples to see this proposal in action.
+
 ## <a name="language-conflicts"></a>Language conflicts
 
-Currently, where an iterator is expected, but a number is expected, a type error is thrown:
+Currently, where an iterator is expected, but a number is given, a type error is thrown:
 
 ```javascript
 TypeError: (var)[Symbol.iterator] is not a function(…)
