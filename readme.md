@@ -30,7 +30,7 @@ Designated TC39 reviewers: @_ @_
   - [Paste](#implementation:paste)
   - [Import](#implementation:import)
 - [FAQ](#faq)  
-  - [How does one interate between arbitrary integers?](#faq:language-conflicts)
+  - [How does one interate between arbitrary integers?](#faq:arbitrary-integers)
   - [Does this cause language conflicts?](#faq:language-conflicts)
 
 ## <a name="status"></a>Status
