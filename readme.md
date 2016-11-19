@@ -29,7 +29,9 @@ Designated TC39 reviewers: @_ @_
 - [Implementation](#implementation)
   - [Paste](#implementation:paste)
   - [Import](#implementation:import)
-- [Language conflicts](#language-conflicts)
+- [FAQ](#faq)  
+  - [How does one interate between arbitrary integers?](#faq:language-conflicts)
+  - [Does this cause language conflicts?](#faq:language-conflicts)
 
 ## <a name="status"></a>Status
 
@@ -309,7 +311,7 @@ and then try out the above examples to see this proposal in action.
 
 ## <a name="faq"></a>FAQ
 
-### <a name="faq:language-conflicts"></a>How does one interate between arbitrary integers?
+### <a name="faq:arbitrary-integers"></a>How does one interate between arbitrary integers?
 
 Iterate up to the difference and add the smaller to each the iteration
 
@@ -333,7 +335,7 @@ for(const i of (smaller - larger)){
 }
 ```
 
-### <a name="faq:language-conflicts"></a>Are there language conflicts?
+### <a name="faq:language-conflicts"></a>Does this cause language conflicts?
 
 Currently if a number is given where an iterator is expected, a type error is thrown:
 
