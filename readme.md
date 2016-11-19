@@ -289,7 +289,7 @@ Symbol.iterator,
       yield i;
       i+=1;
     }
-    return;
+    return this;
   }
 });
 ```
@@ -307,12 +307,38 @@ import './make-numbers-iterable';
 
 and then try out the above examples to see this proposal in action.
 
-## <a name="language-conflicts"></a>Language conflicts
+## <a name="faq"></a>FAQ
 
-Currently, where an iterator is expected, but a number is given, a type error is thrown:
+### <a name="faq:language-conflicts"></a>How does one interate between arbitrary integers?
+
+Iterate up to the difference and add the smaller to each the iteration
+
+```javascript
+for(const i of (larger - smaller)){
+  //do something with (smaller + i)
+}
+```
+
+This will produce the sequence:
+
+```javascript
+[smaller, smaller + 1, ..., larger - 1]
+```
+
+Because of our definition for negative integers, it doesn't matter which numbers is smaller, as long as the [subtrahend](http://mathworld.wolfram.com/Subtrahend.html) is added to the iteration. The following code produces the same sequence as the code above:
+
+```javascript
+for(const i of (smaller - larger)){
+  //do something with (larger + i )
+}
+```
+
+### <a name="faq:language-conflicts"></a>Are there language conflicts?
+
+Currently if a number is given where an iterator is expected, a type error is thrown:
 
 ```javascript
 TypeError: (var)[Symbol.iterator] is not a function(…)
 ```
 
-As such, this should not cause conflicts with existing working code.
+As such, this would not cause conflicts with existing working code.

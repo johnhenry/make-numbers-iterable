@@ -8,6 +8,6 @@ Symbol.iterator,
       yield i;
       i+=1;
     }
-    return;
+    return this;
   }
 });
