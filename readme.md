@@ -21,6 +21,8 @@ Designated TC39 reviewers: @_ @_
   - [conversion to set](#proposed-solution:conversion-set)
     - [set-theory](#side-note:set-theory)
   - [variadic functions](#proposed-solution:variadic-functions)
+  - [infinite loops](#proposed-solution:infinite-loops)
+  - [destructuring](#proposed-solution:destructuring)
   - [negative numbers](#proposed-solution:negative-numbers)
   - [combinations](#proposed-solution:combinations)
 - [Specification](#specification)
@@ -100,7 +102,6 @@ for i in 0..n
   #do something with i
 end
 ```
-
 
 ### <a name="prior-art:python"></a>Python
 
@@ -204,6 +205,44 @@ Iterable Numbers can be spread across variadic functions.
 const sum = (...numbers)=>numbers.reduce((a, b)=>a+b, 0);
 sum(...n);//0 + 1 + ... n-2 + n-1 === (n(n-1))/2
 ```
+
+### <a name="proposed-solution:infinite-loops"></a>infinite loops
+
+Using ```Infinity``` as an iterator provides a convenient method for potentially infinite loops.
+
+Compare what we might have done before:
+
+```javascript
+let i = 0;
+while(true){
+  //do something with i
+  if(/*some condition*/){
+    break;
+  }
+  i++;
+}
+```
+to what we would do now
+
+```javascript
+for(const i of Infinity){
+  //do something with i
+  if(/*some condition*/){
+    break;
+  }
+}
+```
+
+### <a name="proposed-solution:destructuring"></a>destructuring
+
+Iterable numbers can be destructured as arrays.
+
+```javascript
+const [,one,,three] = Infinity;//
+one;//1
+three;//3
+```
+
 
 ### <a name="proposed-solution:negative-numbers"></a>negative numbers
 
