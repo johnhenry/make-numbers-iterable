@@ -133,9 +133,10 @@ Coffeescript also achieves this with the concept of [Comprehensions over Ranges]
 ## <a name="proposed-solution"></a>Proposed Solution: Make Numbers Iterable
 
 We can do away with most of the awkwardness using the [iterator protocol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols) to make numbers iterable.
-Given a number n, invoking `n[Symbol.iterator]` will return an iterator yielding 0 up to n - 1 (the sequence: 0, 1, ..., n - 1, n); or, in the case that n is negative, n up to -1 (the sequence: n, n + 1, ..., -2, -1).
 
-This definition for negative number is useful as it allows a method of <a href="#faq:arbitrary-integers">iterating between two arbitrary integers</a>.
+
+
+Given a positive number n, invoking `n[Symbol.iterator]` will return an iterator yielding the sequence **[0, n)** or _0 up to n - 1, inclusive_. When n is negative, the iterator instead yields the sequence **[n, 0)** or _n up to -1, inclusive_. This definition for negative numbers is useful as it allows a method of iterating between two arbitrary integers. (See [the FAQ](#faq:arbitrary-integers) for more details.)
 
 ### <a name="proposed-solution:for-of"></a>for-of loop
 
