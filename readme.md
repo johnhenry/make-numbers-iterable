@@ -182,10 +182,10 @@ new Set(n);//Set {0,1,...n-1}
 
 On a side note, this fits well with the set theory of integers.
 
-Compare the definition of [von Neumann ordinals]((https://en.wikipedia.org/wiki/Set-theoretic_definition_of_natural_numbers#Definition_as_von_Neumann_ordinals))
+Compare the definition of [von Neumann ordinals](https://en.wikipedia.org/wiki/Set-theoretic_definition_of_natural_numbers#Definition_as_von_Neumann_ordinals)
 
 ```
-n := {x in N | x < n};
+n := {x in N | x < n}
 0 := {}
 1 := {0}
 2 := {0, 1}
