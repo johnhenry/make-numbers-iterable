@@ -29,6 +29,7 @@ Designated TC39 reviewers: @_ @_
 - [Implementation](#implementation)
   - [Paste](#implementation:paste)
   - [Import](#implementation:import)
+- [Alternate Solution: Add Static Method to Number Object](#alternate-solution)
 - [FAQ](#faq)  
   - [How does one interate between arbitrary integers?](#faq:arbitrary-integers)
   - [Does this cause language conflicts?](#faq:language-conflicts)
@@ -308,6 +309,34 @@ import './make-numbers-iterable';
 ```
 
 and then try out the above examples to see this proposal in action.
+
+## <a name="alternate-solution"></a>Alternate Solution: Add Static Method to Number Object
+
+Alternatively, we might add an "interator" method to the Number object.
+
+```javascript
+for (const n of Number.iterator(number)){
+  //do something with n
+}
+```
+
+This can be implemented with the following code.
+
+```javascript
+Object.defineProperty(
+Number,
+"iterator",
+{ value: function *(num){
+    const max = Math.max(0, Math.floor(num));
+    let i = Math.min(0, num);
+    while(i < max) {
+      yield i;
+      i+=1;
+    }
+    return num;
+  }
+});
+```
 
 ## <a name="faq"></a>FAQ
 
