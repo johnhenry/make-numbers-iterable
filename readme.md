@@ -267,7 +267,7 @@ Iterable negative numbers yield the sequence from -n up to -1 instead of 0 up to
 Iterable numbers can be combined with other iterable objects.
 
 ```javascript
-[...-n, ...[0,0], ...n+1];//[-n, -n+1... -1, 0, 0, 0 1 ... n-1, n]
+[...-n, ...[0,0], ...n+1];//[-n, -n+1... -1, 0, 0, 0, 1 ... n-1, n]
 ```
 
 ## <a name="specification"></a>Specification: Number.prototype[Symbol.iterator]
