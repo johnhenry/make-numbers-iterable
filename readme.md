@@ -65,14 +65,17 @@ while(i < n){
 Both syntaxes are awkward syntax for a number of reasons:
 
 - they require an explicit, non-constant, declaration of a placeholder,
+  
   ```javascript
   let i = 0
   ```
 - they requires an explicit test for said placeholder
+  
   ```javascript
   i < n
   ```
 - they require explicit incrementation step of said placeholder
+  
   ```javascript
   i++
   ```
