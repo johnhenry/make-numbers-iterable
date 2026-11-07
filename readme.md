@@ -1,4 +1,4 @@
-# Numbers as Iterarors
+# Numbers as Iterators
 
 ECMAScript proposal, specs, tests, and reference implementation for Numbers as iterators.
 
